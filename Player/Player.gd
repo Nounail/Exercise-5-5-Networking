@@ -45,3 +45,15 @@ func _physics_process(delta):
 
 func die():
 	queue_free()
+
+@rpc("any_peer","call_remote","unreliable_ordered")
+func _set_position(p):
+	global_position = p
+
+@rpc("any_peer","call_remote","unreliable_ordered")
+func _set_rotation(r):
+	rotation.y = r
+
+@rpc("any_peer","call_remote","unreliable_ordered")
+func _die():
+	queue_free()
